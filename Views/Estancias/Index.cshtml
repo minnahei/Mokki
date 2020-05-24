@@ -1,0 +1,32 @@
+@model IEnumerable<Mokki.Models.Estancia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Estancias</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="row d-flex justify-content-center">
+    @{foreach (Estancia X in Model)
+        {
+
+            <div class="card col-lg-4" style="width: 18rem;">
+                <img class="card-img-top foto" src=@Url.Content(X.Foto) alt="foto contacto">
+                <div class="card-body">
+                    <h5 class="card-title">Pueblo: @X.Anfitrion.Pueblo</h5>
+                    <h5 class="card-title">Provincia: @X.Anfitrion.User.Provincia.</h5>
+                    <h4 class="card-title">Estancia: @X.Duracion días</h4>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+@*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
